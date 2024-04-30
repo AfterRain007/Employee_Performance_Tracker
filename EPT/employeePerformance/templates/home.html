@@ -1,8 +1,17 @@
 {% extends 'base.html' %}
-
 {% block content %}
 
-<h1>Hello Guyss!</h1>
+{% load tz %}
+{% get_current_timezone as TIME_ZONE %}
+
+<h2>
+{% if 17 >= TIME_ZONE >= 12 %}
+    Good Afternoon!
+{% elif 24 >= TIME_ZONE >= 17 %}
+    Good Evening!
+{% else %}
+    Good Morning!
+{% endif %}</h2>
 
 <table class="table">
     <thead>
@@ -12,9 +21,7 @@
         <th scope="col">Target</th>
         <th scope="col">Performance</th>
         <th scope="col">Status</th>
-        <th scope="col">
-            <a href="{% url 'addEmployee' %}" style="display: inline-block; width: 25px; height: 25px; border-radius: 100%; background-color: #D9D9D9; text-align: center; line-height: 25px; text-decoration: none; color: black;">+</a>
-        </th>
+        <th scope="col"></th>
       </tr>
     </thead>
     <tbody>
@@ -25,13 +32,13 @@
             <td>{{ employee.Nama }}</td>
             <td>{{ employee.Employment_Status }}</td>
             <td>{% if employee.Employment_Status == "Full-Time" %}
-                7500000
+                Rp 7.500.000
                 {% elif employee.Employment_Status == "Contract" %}
-                5000000
+                Rp 5.000.000
                 {% else %}
-                3000000
+                Rp 3.000.000
                 {% endif %}</td>
-            <td>{{ employee.Monthly_Performance }}</td>
+            <td>Rp {{ employee.Monthly_Performance }}</td>
             <td>{% if employee.Employment_Status == "Full-Time" and employee.Monthly_Performance >= 7500000 %}
                 <div style="width:125px;height:25px;border-radius:20px;text-align:center;line-height:22px;background-color:green">Surpassed</div>
                 {% elif employee.Employment_Status == "Contract" and employee.Monthly_Performance >= 5000000 %}

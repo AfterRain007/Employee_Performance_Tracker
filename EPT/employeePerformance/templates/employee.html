@@ -12,6 +12,7 @@
   
 <br/>
   <button type="submit" class="btn btn-primary">Update Employee Data</button>
+  <a href="{% url 'home' %}" class="btn btn-secondary">Back</a>
   <a href="{% url 'employeeDelete' form.instance.id %}" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this employee?')">Delete</a>
 </form> 
 <br/>
