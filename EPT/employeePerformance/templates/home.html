@@ -11,24 +11,52 @@
         <th scope="col">Employment</th>
         <th scope="col">Target</th>
         <th scope="col">Performance</th>
-        <th scope="col">Edit</th>
-        <th scope="col">
-            <picture>
-                <source srcset="./editbutton-84380-1@2x.png" type="image/svg+xml">
-                <img src="./editbutton-84380-1@2x.png" class="img-fluid img-thumbnail" alt="...">
-              </picture>
+        <th scope="col">Status</th>
+        <th scope="col"><div style="width:20px;height:20px;border-radius:50%;text-align:center;line-height:17px;background-color:lightgray">+</div></th>
       </tr>
     </thead>
     <tbody>
-      <tr>
-{% if Employee %}
 
+{% if Employee %}
     {% for employee in Employee %}
-        {{employee}}<br/>
+        <tr>
+            <td>{{ employee.Nama }}</td>
+            <td>{{ employee.Employment_Status }}</td>
+            <td>{% if employee.Employment_Status == "Full-Time" %}
+                7500000
+                {% elif employee.Employment_Status == "Contract" %}
+                5000000
+                {% else %}
+                3000000
+                {% endif %}</td>
+            <td>{{ employee.Monthly_Performance }}</td>
+            <td>{% if employee.Employment_Status == "Full-Time" and employee.Monthly_Performance >= 7500000 %}
+                <div style="width:125px;height:25px;border-radius:20px;text-align:center;line-height:22px;background-color:green">Surpassed</div>
+                {% elif employee.Employment_Status == "Contract" and employee.Monthly_Performance >= 5000000 %}
+                <div style="width:125px;height:25px;border-radius:20px;text-align:center;line-height:22px;background-color:green">Surpassed</div>
+                {% elif employee.Employment_Status == "Internship" and employee.Monthly_Performance >= 3000000 %}
+                <div style="width:125px;height:25px;border-radius:20px;text-align:center;line-height:22px;background-color:green">Surpassed</div>
+                {% else %}
+                <div style="width:125px;height:25px;border-radius:20px;text-align:center;line-height:23px;background-color:red">Below Target</div>
+                {% endif %}</td>
+            <td><a href="{% url 'employee' employee.id %}">edit</a></td>
+        </tr>
     {% endfor %}
 
-{% endif %}
+{% endif %}    
 
 
 
 {% endblock %}
+
+<style>
+    .circle {
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        border: 2px solid #000;
+        text-align: center;
+        line-height: 26px; /* Adjust this to vertically center the content */
+    }
+</style>
