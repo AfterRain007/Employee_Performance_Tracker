@@ -7,12 +7,14 @@
 <table class="table">
     <thead>
       <tr>
-        <th scope="col">Nama</th>
+        <th scope="col">Name</th>
         <th scope="col">Employment</th>
         <th scope="col">Target</th>
         <th scope="col">Performance</th>
         <th scope="col">Status</th>
-        <th scope="col"><div style="width:20px;height:20px;border-radius:50%;text-align:center;line-height:17px;background-color:lightgray">+</div></th>
+        <th scope="col">
+            <button style="width: 25px;;height:25px;border-radius:100%;line-height:0px;background-color:#D9D9D9;border:0px;">+</button>
+        </th>
       </tr>
     </thead>
     <tbody>
@@ -39,7 +41,7 @@
                 {% else %}
                 <div style="width:125px;height:25px;border-radius:20px;text-align:center;line-height:23px;background-color:red">Below Target</div>
                 {% endif %}</td>
-            <td><a href="{% url 'employee' employee.id %}">edit</a></td>
+            <td><a href="{% url 'updateEmployee' employee.id %}">edit</a></td>
         </tr>
     {% endfor %}
 

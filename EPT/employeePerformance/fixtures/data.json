@@ -1,0 +1,56 @@
+[
+  {
+    "model": "employeePerformance.Employee",  "pk": 1,
+    "fields": {
+      "created_at": "2024-04-30T10:36:00+07:00",
+      "Nama": "Gilang Islamay",
+      "Employment_Status": "Internship",
+      "Monthly_Performance": 6000000
+    }
+  },
+  {
+    "model": "employeePerformance.Employee",  "pk": 2,
+    "fields": {
+      "created_at": "2024-04-30T10:37:00+07:00",
+      "Nama": "Farrel Dafara",
+      "Employment_Status": "Full-Time",
+      "Monthly_Performance": 9000000
+    }
+  },
+  {
+    "model": "employeePerformance.Employee",  "pk": 3,
+    "fields": {
+      "created_at": "2024-04-30T10:38:00+07:00",
+      "Nama": "Ikrom Al-Furqon",
+      "Employment_Status": "Contract",
+      "Monthly_Performance": 2000000
+    }
+  },
+  {
+    "model": "employeePerformance.Employee",  "pk": 4,
+    "fields": {
+      "created_at": "2024-04-30T10:38:00+07:00",
+      "Nama": "M. Rafly Ananda",
+      "Employment_Status": "Full-Time",
+      "Monthly_Performance": 8000000
+    }
+  },
+  {
+    "model": "employeePerformance.Employee",  "pk": 5,
+    "fields": {
+      "created_at": "2024-04-30T10:39:00+07:00",
+      "Nama": "Bayu Anggara",
+      "Employment_Status": "Contract",
+      "Monthly_Performance": 3500000
+    }
+  },
+  {
+    "model": "employeePerformance.Employee",  "pk": 6,
+    "fields": {
+      "created_at": "2024-04-30T10:41:00+07:00",
+      "Nama": "Dhirgam Dary",
+      "Employment_Status": "Full-Time",
+      "Monthly_Performance": 7000000
+    }
+  }
+]
