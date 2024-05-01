@@ -79,7 +79,7 @@ DATABASES = {
         "ENGINE": "django.db.backends.mysql",
         "NAME" : 'companydb',
         "USER" : 'root',
-        "PASSWORD" : 'Thesidepack13',
+        "PASSWORD" : 'thisisapassword',
         "HOST" : 'localhost',
         "PORT" : "3306",
     }
