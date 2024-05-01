@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
-
+{% load static %}
 {% load tz %}
 {% get_current_timezone as TIME_ZONE %}
 
@@ -13,6 +13,7 @@
     Good Morning!
 {% endif %}</h2>
 
+<div class="table-responsive">
 <table class="table">
     <thead>
       <tr>
@@ -21,7 +22,7 @@
         <th scope="col">Target</th>
         <th scope="col">Performance</th>
         <th scope="col">Status</th>
-        <th scope="col"><img src={% static 'images/editbutton-84380-1@2x.png' %}  </th>
+        <th scope="col" style="width: 25px"><a href="{% url 'addEmployee' %}"><img src="{% static '/images/vector.svg' %}" class="image" style="width:20px;"></a></th>
       </tr>
     </thead>
     <tbody>
@@ -48,12 +49,11 @@
                 {% else %}
                 <div style="width:125px;height:25px;border-radius:20px;text-align:center;line-height:23px;background-color:red">Below Target</div>
                 {% endif %}</td>
-            <td><a href="{% url 'updateEmployee' employee.id %}">edit</a></td>
+            <td><a href="{% url 'updateEmployee' employee.id %}"><img src="{% static '/images/editbutton-84380-1@2x.png' %}" class="image" style="width:20px;"></a></td>
         </tr>
     {% endfor %}
-
 {% endif %}    
-
+</div>
 
 
 {% endblock %}
