@@ -1,17 +1,17 @@
 {% extends 'base.html' %}
 {% block content %}
 {% load static %}
-{% load tz %}
-{% get_current_timezone as TIME_ZONE %}
 
 <h2>
-{% if 17 >= TIME_ZONE >= 12 %}
-    Good Afternoon!
-{% elif 24 >= TIME_ZONE >= 17 %}
-    Good Evening!
-{% else %}
-    Good Morning!
-{% endif %}</h2>
+    {% now "H" as current_hour %}
+    {% if current_hour|add:"0" < 12 %}
+      Good Morning!
+    {% elif current_hour|add:"0" < 17 %}
+      Good Afternoon!
+    {% else %}
+      Good Evening!
+    {% endif %}
+</h2>
 
 <div class="table-responsive">
 <table class="table">
@@ -25,7 +25,7 @@
         <th scope="col" style="width: 25px"><a href="{% url 'addEmployee' %}"><img src="{% static '/images/vector.svg' %}" class="image" style="width:20px;"></a></th>
       </tr>
     </thead>
-    <tbody>
+<tbody>
 
 {% if Employee %}
     {% for employee in Employee %}
@@ -33,11 +33,11 @@
             <td>{{ employee.Nama }}</td>
             <td>{{ employee.Employment_Status }}</td>
             <td>{% if employee.Employment_Status == "Full-Time" %}
-                Rp 7.500.000
+                Rp 7.500.000.00
                 {% elif employee.Employment_Status == "Contract" %}
-                Rp 5.000.000
+                Rp 5.000.000.00
                 {% else %}
-                Rp 3.000.000
+                Rp 3.000.000.00
                 {% endif %}</td>
             <td>Rp {{ employee.Monthly_Performance }}</td>
             <td>{% if employee.Employment_Status == "Full-Time" and employee.Monthly_Performance >= 7500000 %}
@@ -57,15 +57,3 @@
 
 
 {% endblock %}
-
-<style>
-    .circle {
-        display: inline-block;
-        width: 30px;
-        height: 30px;
-        border-radius: 50%;
-        border: 2px solid #000;
-        text-align: center;
-        line-height: 26px; /* Adjust this to vertically center the content */
-    }
-</style>

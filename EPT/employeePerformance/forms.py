@@ -10,4 +10,4 @@ class addEmployeeForm(forms.ModelForm):
 
 	class Meta:
 		model = Employee
-		exclude = ("user", )
+		exclude = ()

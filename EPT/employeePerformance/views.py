@@ -24,8 +24,8 @@ def addEmployee(request):
     form = addEmployeeForm(request.POST or None)
     if request.method == 'POST':
         if form.is_valid():
-            addEmployee = form.save()
-            return redirect('home')
+            form.save()
+            return redirect('home') 
     return render(request, 'addEmployee.html', {'form':form})
 
 def employeeDelete(request, pk):
