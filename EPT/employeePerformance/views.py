@@ -23,6 +23,8 @@ def updateEmployee(request, pk):
 def addEmployee(request):
     form = addEmployeeForm(request.POST or None)
     if request.method == 'POST':
+        form = addEmployeeForm(data=request.POST, files=request.FILES)
+
         if form.is_valid():
             form.save()
             return redirect('home') 

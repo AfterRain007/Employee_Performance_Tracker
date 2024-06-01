@@ -1,7 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
 {% load static %}
-
 <h2>
     {% now "H" as current_hour %}
     {% if current_hour|add:"0" < 12 %}
@@ -17,6 +16,7 @@
 <table class="table">
     <thead>
       <tr>
+        <th scope="col"></th>
         <th scope="col">Name</th>
         <th scope="col">Employment</th>
         <th scope="col">Target</th>
@@ -30,6 +30,7 @@
 {% if Employee %}
     {% for employee in Employee %}
         <tr>
+            <td><img class="circle-image" src="static{{employee.foto.url}}" /></td>
             <td>{{ employee.Nama }}</td>
             <td>{{ employee.Employment_Status }}</td>
             <td>{% if employee.Employment_Status == "Full-Time" %}

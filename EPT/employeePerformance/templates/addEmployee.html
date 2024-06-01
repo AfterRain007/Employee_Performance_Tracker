@@ -5,7 +5,7 @@
 <h1>Add Employee</h1>
 <br/>
 
-<form method="POST" action="{% url 'addEmployee' %}">
+<form method="POST" action="{% url 'addEmployee' %}" enctype="multipart/form-data">
 	{% csrf_token %}
 
 	{{ form.as_p }}
